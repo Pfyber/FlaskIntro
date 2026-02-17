@@ -1,0 +1,18 @@
+import urequests
+import network
+import time
+import random
+print("Connecting to WiFi", end="")
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+sta_if.connect('Wokwi-GUEST', '')
+while not sta_if.isconnected():
+  print(".", end="")
+  time.sleep(0.1)
+print(" Connected!")
+
+while True:
+    temperature = random.randint(1,100)
+
+    call = urequests.get(f"https://stunning-journey-x9r9vw7r5q396qv-5000.app.github.dev/data/{temperature}")
+    print(call.text)

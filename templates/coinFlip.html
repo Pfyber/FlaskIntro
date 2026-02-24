@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <h1>Met kovanca:</h1>
+    <div id="coin"> Pritisni gumb za met kovanca </div>
+    <input type="text" name="" id="vrednost">
+    <button onclick="btnClick()" type="button">FLIP!</button>
+
+</body>
+
+</html>
+
+<script>
+    function btnClick() {
+        var divCoin = document.getElementById("coin")
+        var inpText = document.getElementById("vrednost").value
+        console.log(inpText )
+
+        $.ajax({
+            url: "/coinData",
+            data: {
+                vrednost : inpText
+            },
+            success: function (result) {
+               console.log(result)
+               divCoin.innerHTML = result.status
+               
+            }
+        });
+
+        
+        //console.log("BAM")
+    }
+
+
+</script>

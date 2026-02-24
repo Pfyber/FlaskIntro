@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <span id="info">N/A</span>
+    <input type="text" name="" id="tekst">
+    <button onclick="btnClick()" type="button">KLIK</button>
+</body>
+
+</html>
+
+<script>
+
+    function btnClick() {
+        var spanInfo = document.getElementById("info")
+        var inpText = document.getElementById("tekst").value
+        console.log(inpText)
+
+        $.ajax({
+            url: "/temp",
+            method: "post",
+            data: {
+                input: inpText
+            },
+            success: function (result) {
+                console.log(result)
+                spanInfo.innerHTML = result.temp
+            }
+        });
+        console.log("bam")
+
+    }
+
+
+</script>

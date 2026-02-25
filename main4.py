@@ -19,5 +19,7 @@ def coinData():
     status =  ["HEADS", "TAILS"][rnd]
     return {"img" : "url", "status" : status}
 
+#https://github.com/Pfyber/FlaskIntro
+#templates, main4
 
 app.run(debug = True)

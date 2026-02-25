@@ -14,7 +14,11 @@ def coinFlip():
 
 @app.route("/coinData")
 def coinData():
+    # POST request.form
+    #GET
+    print(request.args["vrednost"])
     rnd = random.randint(0,1)
-    return ["TAILS", "HEADS"][rnd]
-
+    status =  ["TAILS", "HEADS"][rnd]
+    return {"img" : "url", "status" : status}
+#ImmutableMultiDict([('zipcode', '97201'), ('vrednost', 'asassa')])
 app.run(debug = True)

@@ -9,6 +9,6 @@ def hello_world():
         print(request.form) #request.form["zipcode"]
         return {"num" : random.randint(1,100)}
     return render_template("methods.html")
-    # če ajax tipa get... request.args
-
+    # če ajax metoda get... request.args
+    #https://github.com/Pfyber/FlaskIntro
 app.run(debug=True)
